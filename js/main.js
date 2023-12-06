@@ -31,7 +31,21 @@ class NotesAPI{
         });
       }
 
-    saveNote(){
+    static saveNote(noteTosave){
+        // 1.existed or 2.not
+        const notes = NotesAPI.getAllNotes();
+
+        const existedNotes = notes.find((n) == n.id == noteTosave.id); 
+
+        if(existedNotes){
+            existedNotes.updated = new Date().toISOString(); 
+        }
+        else{
+            noteTosave.id = new Date().getTime();
+            noteTosave.updated = new Date().toISOString(); 
+            // title, body, id, upadted == new  note!
+            notes.push(noteTosave); 
+        }
 
     }
 
