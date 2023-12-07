@@ -1,10 +1,8 @@
 export default class notesView{
-    constructor(root){
+    constructor(root, handlers){
         this.root = root; 
-
-
-
-
+        const {onNoteAdd} = handlers; 
+        this.onNoteAdd = onNoteAdd; 
         this.root.innerHTML = `
         <div class="notes__sidebar">
         <div class="notes__logo">NOTE APP</div>
@@ -16,5 +14,14 @@ export default class notesView{
         <textarea name="" class="notes__body">Take Note</textarea>
       </div>
       `; 
+
+
+      const addNoteBtn = this.root.querySelector(".notes__add");
+      const inputTitle = this.root.querySelector(".notes__title");
+      const inputBody = this.root.querySelector(".notes__body");
+      addNoteBtn.addEventListener("click", () => {
+        //run add note method!!
+
+      }); 
     }
 }
