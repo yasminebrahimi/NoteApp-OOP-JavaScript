@@ -33,4 +33,20 @@ export default class notesView {
         });
       });
     }
+
+
+
+    _creatListItemHTML(id, title, body, updated){
+      return `
+      <div class="notes__list-item">
+      <div class="notes__small-title">New Note</div>
+      <div class="notes__samall-body">this is my first note !!</div>
+      <div class="notes__samll-updated">Monday 1:30 PM</div>
+    </div>
+    `; 
+    }
+
+    updateNoteList(notes){
+
+    }
 }
