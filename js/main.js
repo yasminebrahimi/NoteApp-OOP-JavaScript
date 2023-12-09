@@ -1,3 +1,4 @@
+import NotesAPI from "./noteAPI";
 import notesAPI from "./noteAPI";
 import notesView from "./notesView";
 
@@ -13,4 +14,10 @@ const view = notesView(app, {
   onNoteEdit(newTile, newBody){
     console.log(newTitle, newBody); 
   },
+
+  onNoteSelect(noteId){
+    console.log(noteId);
+  },
 }); 
+
+view.updateNoteList(NotesAPI.getAllNotes()); 
