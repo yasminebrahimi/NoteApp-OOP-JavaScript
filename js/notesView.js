@@ -41,13 +41,29 @@ export default class notesView {
       return `
       <div class="notes__list-item" data-node-id="${id}">
       <div class="notes__small-title">${title}</div>
-      <div class="notes__samall-body">${body}</div>
-      <div class="notes__samll-updated">Monday 1:30 PM</div>
+      <div class="notes__samall-body">
+      ${body.substring(0, MAX_BODY_LENGTH)}
+      ${body.length > MAX_BODY_LENGTH ? "..." : ""}
+      </div>
+      <div class="notes__samll-updated">
+      ${new Date(updated).toLocaleString("en", {
+        dateStyle: "full",
+        timeStyle: "short", 
+      })}
+      </div>
     </div>
     `; 
     }
 
     updateNoteList(notes){
+      const notesContainer = this.root.querySelector(".notes__list"); 
+
+      //empty noteList
+      notesContainer.innerHTML = ""; 
+      for(const note of notes){
+        const {id,title,body,updated} = note; 
+        const html = this._creatListItemHTML(id,title,body,updated); 
+      }
 
     }
 }
