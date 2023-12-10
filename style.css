@@ -172,3 +172,23 @@ body{
   align-items: center;
   color: var(--mainRed);
 }
+
+
+.notes__item-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+.notes__list-trash{
+  width: 35px;
+  height: 35px;
+  background-color: #fff;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--mainRed);
+}

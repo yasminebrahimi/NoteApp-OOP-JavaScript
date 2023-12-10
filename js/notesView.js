@@ -5,9 +5,10 @@ export default class notesView {
       this.onNoteAdd = onNoteAdd;
       this.onNoteEdit = onNoteEdit;
       this.onNoteSelect  = onNoteSelect; 
+      this.onNoteDelete = onNoteSelect; 
       this.root.innerHTML = `
       <div class="notes__sidebar">
-      <div class="notes__logo">NOTE APP</div>
+      <div class="notes__logo">NOTE APP</div>  
       <div class="notes__list"></div>
       <button class="notes__add">ADD NOTE</button>
     </div>
@@ -41,7 +42,12 @@ export default class notesView {
       const MAX_BODY_LENGTH = 50; 
       return `
       <div class="notes__list-item" data-note-id="${id}">
+      <div class="notes__item-header">
       <div class="notes__small-title">${title}</div>
+      <span class="notes__list-trash" data-note-id="${id}">
+      <i class="fa-light fa-trash-can">
+      </i></span>
+      </div>
       <div class="notes__samall-body">
       ${body.substring(0, MAX_BODY_LENGTH)}
       ${body.length > MAX_BODY_LENGTH ? "..." : ""}
@@ -73,6 +79,13 @@ export default class notesView {
           this.onNoteSelect(noteItem.dataset.noteId)
         })
       });
+
+      notesContainer.querySelectorAll("notes__list-trash")
+      .forEach((item) => {
+        item.addEventListener("click", () => 
+        this.onNoteDelete(noteItem.dataset.noteId)
+        ); 
+      }); 
 
     }
 }
