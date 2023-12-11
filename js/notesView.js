@@ -80,11 +80,13 @@ export default class notesView {
         })
       });
 
-      notesContainer.querySelectorAll("notes__list-trash")
-      .forEach((item) => {
-        item.addEventListener("click", () => 
-        this.onNoteDelete(noteItem.dataset.noteId)
-        ); 
+      notesContainer
+      .querySelectorAll("notes__list-trash")
+      .forEach((noteItem) => {
+        noteItem.addEventListener("click", (e) => {
+        e.stopPropagation(); 
+        this.onNoteDelete(noteItem.dataset.noteId); 
+      }); 
       }); 
 
     }
