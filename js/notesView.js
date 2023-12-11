@@ -34,6 +34,9 @@ export default class notesView {
           this.onNoteEdit(newTitle, newBody);
         });
       });
+      
+
+      this.updateNotePreviewVisibility(false); 
     }
 
 
@@ -93,15 +96,22 @@ export default class notesView {
 
 
     updateActiveNote(note){
-      this.root.querySelector(".notes__title") = note.title;
-      this.root.querySelector(".notes__body") = note.body;
+      this.root.querySelector(".notes__title").value = note.title;
+      this.root.querySelector(".notes__body").value = note.body;
 
       //add selected class: 
-      this.querySelectorAll('.notes__list-item').forEach(item =>{
+      this.root.querySelectorAll('.notes__list-item').forEach(item =>{
         item.classList.remove('.notes__List-item--selected')
       })
-      
+
       this.root.querySelector('.notes__list-item[date-note-id="${note.id}"]')
       .classList.add(".notes__List-item--selected")
+    }
+
+
+    updateNotePreviewVisibility (visible){
+      this.root.querySelector(".notes__preview").style.visibility = visible
+      ? "visible"
+      : "hidden"; 
     }
 }
