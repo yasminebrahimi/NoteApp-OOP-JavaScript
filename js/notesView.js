@@ -90,4 +90,18 @@ export default class notesView {
       }); 
 
     }
+
+
+    updateActiveNote(note){
+      this.root.querySelector(".notes__title") = note.title;
+      this.root.querySelector(".notes__body") = note.body;
+
+      //add selected class: 
+      this.querySelectorAll('.notes__list-item').forEach(item =>{
+        item.classList.remove('.notes__List-item--selected')
+      })
+      
+      this.root.querySelector('.notes__list-item[date-note-id="${note.id}"]')
+      .classList.add(".notes__List-item--selected")
+    }
 }
