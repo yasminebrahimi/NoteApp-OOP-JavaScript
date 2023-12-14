@@ -1,8 +1,5 @@
-
-//App.js done!
-
 import NotesAPI from "./NotesAPI.js";
-import NotesView from "./notesView.js";
+import NotesView from "./NotesView.js";
 
 export default class App {
   constructor(root) {
